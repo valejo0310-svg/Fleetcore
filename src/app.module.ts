@@ -12,6 +12,8 @@ import { MechanicsModule } from './mechanics/mechanics.module.js';
 import { WorkshopsModule } from './workshops/workshops.module.js';
 import { MaintenancesModule } from './maintenances/maintenances.module.js';
 
+import { ExternalController } from './common/external.controller.js';
+
 
 
 @Module({
@@ -41,7 +43,7 @@ import { MaintenancesModule } from './maintenances/maintenances.module.js';
     WorkshopsModule,
     MaintenancesModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, ExternalController],
   providers: [AppService],
 })
 export class AppModule {}

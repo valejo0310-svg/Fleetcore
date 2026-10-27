@@ -2,12 +2,14 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+
 import { AppModule } from './app.module.js';
+import { ResponseInterceptor } from './common/interceptors/response.interceptor.js';
+import { HttpExceptionFilter } from './common/filters/http-exception.filter.js';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Validate all incoming DTOs.
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -16,6 +18,10 @@ async function bootstrap() {
     }),
   );
 
+  // Apply consistent response and error formats.
+  app.useGlobalInterceptors(new ResponseInterceptor());
+  app.useGlobalFilters(new HttpExceptionFilter());
+
   const config = new DocumentBuilder()
     .setTitle('FleetCore')
     .setDescription('FleetCore REST API')
@@ -23,10 +29,9 @@ async function bootstrap() {
     .addBearerAuth()
     .build();
 
-  const documentFactory = () =>
-    SwaggerModule.createDocument(app, config);
+  const document = () => SwaggerModule.createDocument(app, config);
 
-  SwaggerModule.setup('api', app, documentFactory);
+  SwaggerModule.setup('api', app, document);
 
   await app.listen(process.env.PORT ?? 3000);
 }
