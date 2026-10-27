@@ -10,6 +10,7 @@ import { UsersModule } from './users/users.module.js';
 import { AuthModule } from './auth/auth.module.js';
 import { MechanicsModule } from './mechanics/mechanics.module.js';
 import { WorkshopsModule } from './workshops/workshops.module.js';
+import { MaintenancesModule } from './maintenances/maintenances.module.js';
 
 
 
@@ -38,6 +39,7 @@ import { WorkshopsModule } from './workshops/workshops.module.js';
     AuthModule,
     MechanicsModule,
     WorkshopsModule,
+    MaintenancesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
