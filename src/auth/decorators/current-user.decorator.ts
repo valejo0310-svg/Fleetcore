@@ -1,6 +1,6 @@
 import {  createParamDecorator,  ExecutionContext,} from '@nestjs/common';
 
-import { AuthenticatedUser } from '../guards/jwt-auth.guard.js';
+import type { AuthenticatedUser } from '../guards/jwt-auth.guard.js';
 
 // Retrieves the user validated by the JWT guard.
 export const CurrentUser = createParamDecorator(
