@@ -12,6 +12,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   // Register a new technician account.
+  @Public()
   @Post('register')
   @ApiOperation({ summary: 'Register user' })
   register(@Body() dto: RegisterDto) {
@@ -19,6 +20,7 @@ export class AuthController {
   }
 
   // Authenticate an existing user.
+  @Public()
   @Post('login')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Login user' })
