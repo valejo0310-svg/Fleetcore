@@ -31,6 +31,16 @@
 $ npm install
 ```
 
+## Run with Docker Compose
+
+Copy `.env.example` to `.env`, set a secure `DB_PASSWORD` and `JWT_SECRET`, then start the application and PostgreSQL:
+
+```bash
+docker compose up --build
+```
+
+The API is available at `http://localhost:3000` and Swagger at `http://localhost:3000/api`. To stop the containers, run `docker compose down`; the PostgreSQL data remains in its named volume.
+
 ## Compile and run the project
 
 ```bash
