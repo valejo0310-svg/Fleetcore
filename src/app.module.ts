@@ -8,6 +8,7 @@ import { AppService } from './app.service.js';
 import { VehiclesModule } from './vehicles/vehicles.module.js';
 import { UsersModule } from './users/users.module.js';
 import { AuthModule } from './auth/auth.module.js';
+import { MechanicsModule } from './mechanics/mechanics.module.js';
 
 
 
@@ -34,6 +35,7 @@ import { AuthModule } from './auth/auth.module.js';
     VehiclesModule,
     UsersModule,
     AuthModule,
+    MechanicsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
