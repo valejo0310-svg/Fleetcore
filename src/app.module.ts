@@ -5,6 +5,7 @@ import configuration from './config/configuration.js';
 
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
+import { VehiclesModule } from './vehicles/vehicles.module.js';
 
 
 @Module({
@@ -23,9 +24,11 @@ import { AppService } from './app.service.js';
         password: config.getOrThrow<string>('DB_PASSWORD'),
         database: config.getOrThrow<string>('DB_NAME'),
         autoLoadEntities: true,
-        synchronize: false,
+        synchronize: true,
       }),
     }),
+    
+    VehiclesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
