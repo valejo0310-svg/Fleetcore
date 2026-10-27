@@ -9,6 +9,7 @@ import { VehiclesModule } from './vehicles/vehicles.module.js';
 import { UsersModule } from './users/users.module.js';
 import { AuthModule } from './auth/auth.module.js';
 import { MechanicsModule } from './mechanics/mechanics.module.js';
+import { WorkshopsModule } from './workshops/workshops.module.js';
 
 
 
@@ -36,6 +37,7 @@ import { MechanicsModule } from './mechanics/mechanics.module.js';
     UsersModule,
     AuthModule,
     MechanicsModule,
+    WorkshopsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
