@@ -7,9 +7,9 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('FleetCore')
-    .setDescription('FleetCore API')
+    .setDescription('FleetCore REST API')
     .setVersion('1.0')
-    .addTag('')
+    .addBearerAuth()
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
